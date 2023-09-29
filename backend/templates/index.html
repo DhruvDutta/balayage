@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}BalayageInsta{% endblock %}
+
+{% block content %}
+<div class="row row1">
+    <div class="col-2">
+      <img src="{% static 'assets/arvind.JPG' %}" class="img-fluid" alt="" srcset="">
+    </div>
+    <div class="col d-flex flex-column justify-content-center mt-5 align-items-center text-center row1-text pt-5">
+        <div class="container-fluid bg-light rounded col-10 col-sm-8 col-md-6 mt-5 intro">
+            <div class="h1 p-2">
+                Transform Your Hair <br>
+                with Balayage
+            </div>
+            <div class="head-para d-none d-md-block ">
+                Experience the latest hair styling trends and enhance your look with our professional balayage services.
+            </div>
+            <div class="btn btn-dark m-2" onclick="window.location.href='#contact'">Book Now</div>
+        </div>
+    </div>
+  </div>
+<div class="row row2 p-2 py-5 row-cols-2 row-cols-md-4 flex-row-reverse bg-dark">
+    {% for video in videos %}
+        <div class="col">
+        <video autoplay muted loop class="img-fluid">
+            <source src="{{ video }}" >
+        </video>
+        </div>
+    {% endfor %}
+  </div>
+  <div class="row row3 p-2 p-sm-4 p-md-5 py-5">
+    <div class="col col-md-10">
+      <div class="h1">
+        About Us
+      </div>
+      <div class="para fs-5">
+        BalayageInsta is a premier hair stylist located in Jalandhar, Punjab, India. With a passion for creating stunning hair transformations, our team of skilled professionals is dedicated to providing exceptional services to our valued clients. We specialize in the art of balayage, a technique that results in natural-looking, sun-kissed highlights. Whether you're looking for a complete hair makeover or a simple touch-up, our talented stylists are committed to delivering personalized and flawless results that exceed your expectations. Visit BalayageInsta and experience the perfect blend of creativity, expertise, and exceptional customer service.
+      </div>
+    </div>
+  </div>
+  <div class="row row4 p-2 pb-5 p-sm-4 p-md-5 bg-dark d-flex justify-content-center align-items-center" id="services">
+    <div class="row py-3">
+        <div class="h1 text-light">
+            Our Services
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-2">
+        {% for i in services %}
+            <div class="col">
+                <div class="my-card d-grid gap-2">
+                    <img src="{{i.image}}" class="img-fluid" alt="" srcset="">
+                    <div class="h2">
+                        {{ i.name }}
+                    </div>
+                    <div class="p">
+                        {{i.info}}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+  </div>
+  <div class="row row5 p-2 p-sm-4 p-md-5 d-flex justify-content-center align-items-center" id="contact">
+    <div class="col p-3 d-grid gap-3">
+        <div class="h1">
+            Contact Us
+        </div>
+        <div class="para fs-5">
+            Fill out the form below to get in touch with us. We are here to answer any questions and provide the best hair styling services for you.
+        </div>
+    </div>
+    <div class="col px-md-5">
+      <form onSubmit="return false;" class="">
+      <div class="row justify-content-between text-left ">
+        <div class="form-group col-sm-6 flex-column d-flex">
+          <label class="form-control-label ">Name</label>
+          <input type="text" id="name" name="name" placeholder="" > </div>
+        <div class="form-group col-sm-6 flex-column d-flex">
+          <label class="form-control-label ">Email</label>
+          <input type="text" id="email" name="email" placeholder=""> </div>
+        </div>
+        <div class="form-group col-sm-12 flex-column d-flex">
+          <label class="form-control-label ">Message</label>
+          <textarea class="" rows="3" id="message" name="message" placeholder="" ></textarea>
+        </div>
+        <div class="form-group col-sm-12">
+          <div class="col-sm-12 text-center">
+            <button class="btn btn-dark text-center px-4 book" onclick="book1()">Submit</button>
+          </div>
+        </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row row6 m-0 p-2 p-sm-4 p-md-5 bg-dark text-light d-flex justify-content-center flex-md-row-reverse align-items-center row-cols-1 row-cols-md-2">
+    <div class="col d-flex justify-content-center align-items-center p-2">
+      <div class="h1">
+        Location
+      </div>
+    </div>
+    <div class="col">
+      <iframe class="img-fluid" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d852.0179889579838!2d75.53986856441806!3d31.329385841387165!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a5b17f141837b%3A0x2f01727d2376fee5!2sBalayage%20insta!5e0!3m2!1sen!2sin!4v1692341647337!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+{% endblock %}
